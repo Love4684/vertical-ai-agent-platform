@@ -28,6 +28,26 @@ class DomainError(Exception):
         self.code = code
 
 
+class NotFoundError(DomainError):
+    status_code = 404
+    title = "Not Found"
+
+
+class ForbiddenError(DomainError):
+    status_code = 403
+    title = "Forbidden"
+
+
+class ConflictError(DomainError):
+    status_code = 409
+    title = "Conflict"
+
+
+class TooManyRequestsError(DomainError):
+    status_code = 429
+    title = "Too Many Requests"
+
+
 def _problem(
     *,
     status_code: int,
